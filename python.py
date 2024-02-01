@@ -34,5 +34,5 @@ def simple_web_crawler(url, depth=3):
     crawl(url, 1)
 
 # Example usage:
-start_url = 'https://example.com'
+start_url = 'https://www.wikipedia.org/'
 simple_web_crawler(start_url)
