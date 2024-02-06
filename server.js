@@ -52,3 +52,14 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+socket.on('chat message', async (msg) => {
+  try {
+    const message = new Message({ text: msg });
+    await message.save();
+    socket.to('chatRoom').emit('chat message', message);
+    // Also send the message to the sender
+    socket.emit('chat message', message);
+  } catch (error) {
+    console.error(error);
+  }
+});
