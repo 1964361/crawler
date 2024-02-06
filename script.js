@@ -25,4 +25,7 @@ function appendMessage(message) {
   const item = document.createElement('li');
   item.textContent = message.text;
   messages.appendChild(item);
+  
+  // Scroll to the bottom of the chat container
+  messages.scrollTop = messages.scrollHeight;
 }
