@@ -14,10 +14,12 @@ form.addEventListener('submit', (e) => {
 });
 
 socket.on('chat message', (message) => {
+  console.log('Received message:', message);
   appendMessage(message);
 });
 
 socket.on('message history', (history) => {
+  console.log('Received message history:', history);
   history.forEach(message => appendMessage(message));
 });
 
